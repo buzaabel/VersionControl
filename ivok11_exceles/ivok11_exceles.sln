@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ivok11_exceles", "ivok11_exceles\ivok11_exceles.csproj", "{8DCBE93C-B3E6-4159-87F6-F0FBE5CB894F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DCBE93C-B3E6-4159-87F6-F0FBE5CB894F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DCBE93C-B3E6-4159-87F6-F0FBE5CB894F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DCBE93C-B3E6-4159-87F6-F0FBE5CB894F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DCBE93C-B3E6-4159-87F6-F0FBE5CB894F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC6C1E8C-E6D1-495F-B319-C298EEFE7157}
+	EndGlobalSection
+EndGlobal
