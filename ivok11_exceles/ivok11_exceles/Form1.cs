@@ -74,7 +74,7 @@ namespace ivok11_exceles
 
         private void CreateTable()
         {
-            string[] headers = new string[] {
+            string[] headers = new string[] {                
                  "Kód",
                  "Eladó",
                  "Oldal",
@@ -84,6 +84,12 @@ namespace ivok11_exceles
                  "Alapterület (m2)",
                  "Ár (mFt)",
                  "Négyzetméter ár (Ft/m2)"};
+
+            for (int i = 1; i < headers.Length; i++)
+            {
+                xlSheet.Cells[1, i] = headers[i-1];
+
+            }
 
             object[,] values = new object[Flats.Count, headers.Length];
 
@@ -116,6 +122,18 @@ namespace ivok11_exceles
             headerRange.RowHeight = 40;
             headerRange.Interior.Color = Color.LightBlue;
             headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range fullrange = xlSheet.get_Range(GetCell(1, 1), GetCell(Flats.Count, headers.Length));
+            fullrange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range firstCrange = xlSheet.get_Range(GetCell(2, 1), GetCell(Flats.Count, 1));
+            firstCrange.Font.Bold = true;
+            firstCrange.Interior.Color = Color.LightYellow;
+
+            Excel.Range lastCrange = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(Flats.Count, headers.Length));
+            lastCrange.Interior.Color = Color.LightGreen;
+
+
         }
 
         private string GetCell(int x, int y)
