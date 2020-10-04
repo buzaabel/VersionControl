@@ -21,7 +21,7 @@ namespace ivok11_exceles
 
         Excel.Application xlApp;
         Excel.Workbook xlWB;
-        Excel.Worksheet xlSheet;
+        Excel.Worksheet xlSheet;       
 
         public Form1()
         {
