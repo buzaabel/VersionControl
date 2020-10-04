@@ -124,14 +124,14 @@ namespace ivok11_exceles
             headerRange.Interior.Color = Color.LightBlue;
             headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
-            Excel.Range fullrange = xlSheet.get_Range(GetCell(1, 1), GetCell(Flats.Count, headers.Length));
+            Excel.Range fullrange = xlSheet.get_Range(GetCell(1, 1), GetCell(Flats.Count+1, headers.Length));
             fullrange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
 
-            Excel.Range firstCrange = xlSheet.get_Range(GetCell(2, 1), GetCell(Flats.Count, 1));
+            Excel.Range firstCrange = xlSheet.get_Range(GetCell(2, 1), GetCell(Flats.Count+1, 1));
             firstCrange.Font.Bold = true;
             firstCrange.Interior.Color = Color.LightYellow;
 
-            Excel.Range lastCrange = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(Flats.Count, headers.Length));
+            Excel.Range lastCrange = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(Flats.Count+1, headers.Length));
             lastCrange.Interior.Color = Color.LightGreen;
 
 
