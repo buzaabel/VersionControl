@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace week05_ivok11
         List<Tick> Ticks;
 
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
-
+        List<decimal> Nyereségek = new List<decimal>();
 
         public Form1()
         {
@@ -28,7 +29,7 @@ namespace week05_ivok11
             dataGridView1.DataSource = Ticks;
             CreatePortfolio();
 
-            List<decimal> Nyereségek = new List<decimal>();
+            
             int intervalum = 30;
             DateTime kezdőDátum = (from x in Ticks select x.TradingDay).Min();
             DateTime záróDátum = new DateTime(2016, 12, 30);
@@ -70,6 +71,31 @@ namespace week05_ivok11
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+
+            sfd.FileName = "Fileod.txt";
+            sfd.Filter = "Text File | *.txt";
+
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                StreamWriter writer = new StreamWriter(sfd.OpenFile());
+                writer.WriteLine("Időszak   Nyereség");
+                var nyereségekRendezve = (from x in Nyereségek
+                                          orderby x
+                                          select x)
+                                        .ToList();
+                for (int i = 0; i < nyereségekRendezve.Count(); i++)
+                {
+                    writer.WriteLine((i + 1) + " " + nyereségekRendezve[i]);
+                }
+                writer.Dispose();
+                writer.Close();
+            }
+
         }
     }
 }
