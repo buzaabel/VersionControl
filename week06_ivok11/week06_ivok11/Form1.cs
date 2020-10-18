@@ -18,13 +18,22 @@ namespace week06_ivok11
     {
 
         BindingList<RateData> RateDatas =new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
        
         public Form1()
         {
             InitializeComponent();
-            Kulonresz();           
-            dataGridView1.DataSource = RateDatas;
+            RefreshData();
+            comboBox1.DataSource = Currencies;
             
+
+        }
+
+        private void RefreshData()
+        {
+            RateDatas.Clear();
+            Kulonresz();
+            dataGridView1.DataSource = RateDatas;            
         }
 
         private void Kulonresz()
@@ -33,9 +42,9 @@ namespace week06_ivok11
 
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-30"
+                currencyNames = (comboBox1.SelectedItem).ToString(),
+                startDate = (dateTimePicker1.Value).ToString(),
+                endDate =dateTimePicker2.ToString() 
             };
 
             var response = mnbService.GetExchangeRates(request);
@@ -74,11 +83,19 @@ namespace week06_ivok11
 
         }
 
-        
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
 
-       
-            
-          
-        
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
     }
 }
