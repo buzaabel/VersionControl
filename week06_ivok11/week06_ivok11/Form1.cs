@@ -18,13 +18,25 @@ namespace week06_ivok11
     {
 
         BindingList<RateData> RateDatas =new BindingList<RateData>();
-        BindingList<string> Currencies = new BindingList<string>();
+        //BindingList<string> Currencies = new BindingList<string>();
        
         public Form1()
         {
             InitializeComponent();
+            //var mnbService = new MNBArfolyamServiceSoapClient();
+
+            //var request = new GetCurrenciesRequestBody()
+           // {              
+               
+           // };
+           // var response = mnbService.GetCurrencies(request);
+           // var result = response.GetCurrenciesResult;
+           // var xml = new XmlDocument();
+           // xml.LoadXml(result);
+            
+
             RefreshData();
-            comboBox1.DataSource = Currencies;
+            //comboBox1.DataSource = Currencies;
             
 
         }
@@ -42,9 +54,9 @@ namespace week06_ivok11
 
             var request = new GetExchangeRatesRequestBody()
             {
-                currencyNames = (comboBox1.SelectedItem).ToString(),
-                startDate = (dateTimePicker1.Value).ToString(),
-                endDate =dateTimePicker2.ToString() 
+                 currencyNames = (comboBox1.SelectedItem).ToString(),
+                 startDate = (dateTimePicker1.Value).ToString(),
+                 endDate = (dateTimePicker2.Value).ToString()             
             };
 
             var response = mnbService.GetExchangeRates(request);
