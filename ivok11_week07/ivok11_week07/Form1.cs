@@ -27,8 +27,14 @@ namespace ivok11_week07
             BirthProbabilities = GetBP(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDP(@"C:\Temp\halál.csv");
             dataGridView1.DataSource = BirthProbabilities;
-            
-            for (int year = 2005; year <= 2024; year++)
+
+            Simulation();
+
+        }
+
+        private void Simulation()
+        {
+            for (int year = 2005; year <= numericUpDown1.Value; year++)
             {
 
                 for (int i = 0; i < Population.Count; i++)
@@ -43,12 +49,11 @@ namespace ivok11_week07
                 int nbrOfFemales = (from x in Population
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
-                Console.WriteLine(
+                MessageBox.Show(
                     string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
             }
-
-
         }
+
         public List<Person> GetPopulation(string csvpath)
         {
             List<Person> population = new List<Person>();
@@ -154,6 +159,15 @@ namespace ivok11_week07
             }
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Simulation();
+        }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+
+        }
     }
 }
