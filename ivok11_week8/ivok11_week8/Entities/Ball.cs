@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace ivok11_week8.Entities
 {
-    public class Ball: Label
+    public class Ball : Label
     {
         public Ball()
         {
             AutoSize = false;
             Width = 50;
             Height = Width;
-            Paint += Ball_Paint;       
+            Paint += Ball_Paint;
         }
 
         private void Ball_Paint(object sender, PaintEventArgs e)
@@ -23,7 +23,7 @@ namespace ivok11_week8.Entities
             DrawImage(e.Graphics);
         }
 
-        protected void DrawImage(Graphics graphics)
+        protected void DrawImage(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
