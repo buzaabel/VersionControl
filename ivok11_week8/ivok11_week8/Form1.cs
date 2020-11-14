@@ -76,7 +76,9 @@ namespace ivok11_week8
         {
             Factory = new BallFactory
             {
+
                 BallColor = button3.BackColor
+
             };
         }
 
