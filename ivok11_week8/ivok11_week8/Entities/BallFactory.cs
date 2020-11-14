@@ -1,6 +1,7 @@
 ﻿using ivok11_week8.Abstactions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,10 @@ namespace ivok11_week8.Entities
    
         public class BallFactory: IToyFactory
         {
-            public Toy CreateNew()
+        public Color BallColor { get; set; }
+        public Toy CreateNew()
             {
-                return new Ball();
+                return new Ball(BallColor);
             }
         }
     
