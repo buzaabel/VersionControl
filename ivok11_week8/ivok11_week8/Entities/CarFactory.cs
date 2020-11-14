@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 
 namespace ivok11_week8.Entities
 {
-   
-        public class BallFactory: IToyFactory
+    public class CarFactory : IToyFactory
+    {
+        public Toy CreateNew()
         {
-            public Toy CreateNew()
-            {
-                return new Ball();
-            }
+            return new Car();
         }
-    
+    }
+
 }
