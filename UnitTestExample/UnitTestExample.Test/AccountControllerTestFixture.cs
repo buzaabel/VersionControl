@@ -17,6 +17,7 @@ namespace UnitTestExample.Test
             TestCase("irf.uni-corvinus.hu", false),
             TestCase("irf@uni-corvinus.hu", true)
         ]
+
         public void TestValidateEmail(string email, bool expectedResult)
         {
             
@@ -26,5 +27,20 @@ namespace UnitTestExample.Test
 
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [
+            Test,
+            TestCase("ABCD1234", false),
+            TestCase("Ab1234", false),
+            TestCase("abcd1234", false),
+            TestCase("abcdABCD", false),
+            TestCase("Abcd1234", true),
+        ]
+        public void TestValidatePassword(string email, bool expectedResult)
+        {
+
+        }
+
+
     }
 }
