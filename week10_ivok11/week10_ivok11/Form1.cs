@@ -7,14 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldsHardestGame;
 
 namespace week10_ivok11
 {
     public partial class Form1 : Form
     {
+        GameController gc = new GameController();
+        GameArea ga;
+
+        int populationSize = 100;
+        int nbrOfSteps = 10;
+        int nbrOfStepsIncrement = 10;
+        int generation = 1;
+
         public Form1()
         {
             InitializeComponent();
+
+            ga = gc.ActivateDisplay();
+            this.Controls.Add(ga);
+            for (int i = 0; i < populationSize+1; i++)
+            {
+                gc.AddPlayer(nbrOfSteps);               
+            }
+                gc.Start();
         }
     }
 }
